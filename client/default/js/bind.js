@@ -12,3 +12,6 @@ function bindEvents(){
 		zendesk.newRequest(subject,description,email);
 	});
 }
+
+
+$(document).ready(bindevents);
