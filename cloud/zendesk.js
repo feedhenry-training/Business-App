@@ -8,7 +8,7 @@
  * Help desk software reduces the need to rely upon email-only support, reducing the number of transactions and missed or lost messages.
  */
 var zendesk={
-  zenDeskUrl : "http://fhbusiness.zendesk.com", // Zendesk URL
+  zenDeskUrl : "https://fhbusiness.zendesk.com", // Zendesk URL
   agentAuth:"keyang.xiang@gmail.com:password",  //agent that will create tickets for end-users. it is in username:password format. required by Zendesk API
   agentHeader:"X-On-Behalf-Of", // agent header is used by Zendesk to locate the end-users. required by Zendesk API
   /**
