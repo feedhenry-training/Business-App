@@ -14,4 +14,4 @@ function bindEvents(){
 }
 
 
-$(document).ready(bindevents);
+$(document).ready(bindEvents);
