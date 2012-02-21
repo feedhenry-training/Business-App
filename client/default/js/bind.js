@@ -13,7 +13,7 @@ function bindEvents(){
 	});
 	
 	$("#getRequests").bind("click",function(){
-		var email=$("#email").val();
+		var email=$("#emailCheck").val();
 		zendesk.listUserRequests(email);
 	});
 }
