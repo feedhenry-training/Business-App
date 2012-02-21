@@ -74,10 +74,11 @@ var zendesk={
   	
   },
   webcall : function(url, auth,userOpt) {
-  	var encodedAuth=Base64.encode(auth);
-	 if(auth == null) {
+  	if(auth == null) {
 		auth = "";
 	 }
+  	var encodedAuth=Base64.encode(auth);
+	 
 	 var opt={
 		url : url,
 		method : "GET",
@@ -92,7 +93,7 @@ var zendesk={
 	 if (userOpt!=undefined){
 		for (var key in userOpt){
 			if (key==="headers"){
-				opt['headers'].concat(userOpt['headers']);
+				opt['headers']=opt['headers'].concat(userOpt['headers']);
 			}else{
 				opt[key]=userOpt[key];
 			}
