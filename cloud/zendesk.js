@@ -38,7 +38,7 @@ var zendesk={
 	 
 	 var res=this.webcall(apiAbsUrl,auth,userOpt);
 	 
-	 var status=this.getHeader("Status");
+	 var status=this.getHeader(res,"Status");
 	 if ("201 Created"===status){
 	 	return {"status":"OK"};
 	 }else{
@@ -70,7 +70,13 @@ var zendesk={
   	
   	var res=this.webcall(apiAbsUrl,auth,userOpt);
   	
-  	return res;
+  	
+  	 var status=this.getHeader(res,"Status");
+	 if ("200 OK"==status){
+	 	return {"status":"OK","data":res.body};
+	 }else{
+	 	return {"status":"error"}
+	 }
   	
   },
   webcall : function(url, auth,userOpt) {
