@@ -38,7 +38,13 @@ var zendesk={
 	 
 	 var res=this.webcall(apiAbsUrl,auth,userOpt);
 	 
-	 return res;
+	 var status=this.getHeader("Status");
+	 if ("201 Created"===status){
+	 	return {"status":"OK"};
+	 }else{
+	 	return {"status":"error"};
+	 }
+	 
 	 
   },
   /**

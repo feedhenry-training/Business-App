@@ -11,6 +11,11 @@ function bindEvents(){
 		
 		zendesk.newRequest(subject,description,email);
 	});
+	
+	$("#getRequests").bind("click",function(){
+		var email=$("#email").val();
+		zendesk.listUserRequests(email);
+	});
 }
 
 

@@ -14,10 +14,30 @@ var zendesk = {
 					email:email
 				}
 			}, function(res) {
-				 alert(JSON.stringify(res))
+				if (res.status==="OK"){
+					alert("Request has been created!");
+				}else{
+					alert("Error happened. Please try again.");
+				}
 			},
 				function(code,errorprops,params) {
+					alert("Error happened. Please try again.");
 			});
+		}
+	},
+	listUserRequests:function(email){
+		if (email && email != ""){
+			$fh.act({
+				act:"listUserRequests",
+				secure:false,
+				req:{
+					email:email
+				}
+			},function(res){
+				alert(JSON.stringify(res));
+			},function(){
+				alert("Error happened. Please try again.");
+			})
 		}
 	}
 }
