@@ -1,0 +1,39 @@
+*{
+	margin:0;
+	padding:0;
+}
+
+.header{
+	margin-top:10px;
+	margin-bottom:10px;
+	text-align:center;
+	
+}
+
+
+.header ul{
+	list-style:none;
+	display:block;
+	
+}
+.header a{
+	margin-right:10px;
+	border-right:1px solid #ccc;
+	padding-right:10px;
+}
+
+.body{
+	margin-left:20px;
+	margin-right:20px;
+}
+.padding{
+	padding-left:20px;
+}
+
+.form div{
+	margin-bottom:10px;
+}
+.widget{
+	padding-top:8px;
+	border-top:1px solid #333;
+}
