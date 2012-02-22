@@ -51,7 +51,16 @@ var mortgage = {
 		var start_index=res.body.indexOf("<GetMortgagePaymentResult>");
 		var end_tag="</GetMortgagePaymentResult>";
 		var end_index=res.body.indexOf(end_tag)+end_tag.length;
-		return {data:res.body.substring(start_index,end_index)};
+		var xmlData=new XML(res.body.substring(start_index,end_index));
+		var rtnObj={
+			MonthlyPrincipalAndInterest:xmlData.MonthlyPrincipalAndInterest.toString(),
+			MonthlyTax:xmlData.MonthlyTax.toString(),
+			MonthlyInsurance:xmlData.MonthlyInsurance.toString(),
+			TotalPayment:xmlData.TotalPayment.toString()
+		}
+		
+		
+		return rtnObj;
 		
 		
 	}
