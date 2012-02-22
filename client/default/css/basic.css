@@ -156,3 +156,13 @@ button {
   font-size: 0.6em;
   padding: 6px 13px
 }
+
+#euroSymbol {
+  font-size: 20em; 
+  color: #eee; 
+  position: absolute; 
+  bottom: 5px; 
+  right: 5px; 
+  z-index: -1000; 
+  cursor: default;
+}
