@@ -16,7 +16,10 @@ var stock = {
 	getStockInfo : function(name) {
 		var yahooApiUrl = this.yahooApi.replace("{0}", name);
 		var symbolRes = $fh.web({
-			url : yahooApiUrl
+			url : yahooApiUrl,
+			method:"GET",
+			charset:"UTF-8",
+			period:3600
 		});
 		return symbolRes;
 		var stockSymbol = this.processSymbolRes(symbolRes);
