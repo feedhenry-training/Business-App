@@ -32,6 +32,18 @@ function bindEvents(){
 		stock.getStockInfo(companyName);
 	});
 	
+	$("#nav_stock").bind("click",function(){
+		changePage("stock");
+	});
+	
+	$("#nav_mortgage").bind("click",function(){
+		changePage("mortgage");
+	});
+	
+	$("#nav_support").bind("click",function(){
+		changePage("zendesk");
+	});
+	
 }
 
 

@@ -58,3 +58,11 @@ button{
 	text-align:right;
 	font-size:0.75em;
 }
+
+.page{
+	display:none;
+}
+
+.page.active{
+	display:block;
+}
