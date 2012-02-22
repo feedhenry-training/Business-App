@@ -12,6 +12,8 @@ var stock={
 				loading(false);
 				if (res.stockInfo){
 					var stockInfoXmlStr=res.stockInfo;
+					var stockSymbol=res.stockSymbol;
+					$("#stockSymbol").text("Stock Symbol:"+stockSymbol);
 					$("#stockInfo").text(stockInfoXmlStr);
 				}
 			},

@@ -41,7 +41,9 @@ var stock = {
 		}
 		var stockInfoSoapRes=$fh.web(opt);
 		var xmlData=getSOAPElement("GetQuoteResult",stockInfoSoapRes.body)
-		return {stockInfo:xmlData.toString()};
+		return { //mash up
+			stockSymbol:stockSymbol,
+			stockInfo:xmlData.toString()};
 		
 	},
 	processSymbolRes : function(res) {
