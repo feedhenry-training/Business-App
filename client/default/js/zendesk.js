@@ -55,7 +55,7 @@ var zendesk = {
 						for (var j=0;j<comments.length;j++){
 							var c=comments[j];
 							var val=c.value;
-							var create_date=val['created_at'];
+							var create_date=c['created_at'];
 							html+="<p>"+val+"</p>";
 							html+="<div>"+create_date+"</div>";
 						}

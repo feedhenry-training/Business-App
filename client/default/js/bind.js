@@ -16,6 +16,16 @@ function bindEvents(){
 		var email=$("#emailCheck").val();
 		zendesk.listUserRequests(email);
 	});
+	
+	$("#submitMortgage").bind("click",function(){
+		var years=$("#years").val();
+		var interest=$("#interest").val();
+		var loanAmount=$("#loanAmount").val();
+		var tax=$("#tax").val();
+		var insurance=$("#insurance").val();
+		
+		mortgage.getMortgage(years,interest,loanAmount,tax,insurance);
+	});
 }
 
 

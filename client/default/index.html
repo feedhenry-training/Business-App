@@ -15,7 +15,7 @@
 			</div>
 		</div>
 		<div class="body">
-			<div id="zendesk">
+			<div id="zendesk" class="page">
 				<div class="newrequest widget">
 					<h2>Submit a new request</h2>
 					<div class="padding form">
@@ -55,9 +55,48 @@
 					<button id="getRequests">
 						Refresh My Requests
 					</button>
-					
-					<div id="requests">
-						
+					<div id="requests"></div>
+				</div>
+			</div>
+			<div id="mortgage" class="page">
+				<div class="mortgage widget">
+					<h2>Calculate my Mortgage</h2>
+					<div class="padding form">
+						<div>
+							<label for="years">Years*</label>
+						</div>
+						<div>
+							<input type="text" id="years" name="years"/>
+						</div>
+						<div>
+							<label for="interest">Interest*</label>
+						</div>
+						<div>
+							<input type="text" id="interest" name="interest"/>
+						</div>
+						<div>
+							<label for="loanAmount">Loan Amount*</label>
+						</div>
+						<div>
+							<input type="text" id="loanAmount" name="loanAmount"/>
+						</div>
+						<div>
+							<label for="tax">Tax*</label>
+						</div>
+						<div>
+							<input type="text" id="tax" name="tax"/>
+						</div>
+						<div>
+							<label for="insurance">Insurance*</label>
+						</div>
+						<div>
+							<input type="text" id="insurance" name="insurance"/>
+						</div>
+						<div>
+							<button id="submitMortgage">
+								Submit
+							</button>
+						</div>
 					</div>
 				</div>
 			</div>

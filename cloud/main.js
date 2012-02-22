@@ -11,8 +11,13 @@ function newRequest(param){
 }
 
 /**
- * 
+ * Retrieve all request tickets
  */
 function listUserRequests(param){
 	return zendesk.listUserRequests(param.email);
+}
+
+
+function getMortgage(param){
+	return mortgage.getMortgage(param.years,param.interest,param.loanAmount,param.tax,param.insurance);
 }
