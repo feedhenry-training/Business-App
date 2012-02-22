@@ -32,7 +32,7 @@ var stock = {
 							+'</soap:Envelope>';
 		var stockInfoUrl=this.webServiceXApi;
 		var opt={
-			url:url,
+			url:stockInfoUrl,
 			method:"POST",
 			charset:"UTF-8",
 			contentType:"text/xml",
