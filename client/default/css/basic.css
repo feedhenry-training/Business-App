@@ -102,6 +102,7 @@ h2 {
   border-bottom: 1px solid #EEE;
   margin: 10px 0px;
   padding-bottom: 4px;
+  font-size: 0.95em;
 }
 
 h4 {
@@ -109,6 +110,7 @@ h4 {
   text-transform: lowercase;
   margin: 10px 0px;
   padding-bottom: 4px;
+  font-size: 0.95em;
 }
 
 
