@@ -46,11 +46,20 @@ var zendesk = {
 						var create_date=d.created_at;
 						var subject=d.subject;
 						var desc=d.description;
+						var comments=d.comments;
+						
+						
 						
 						html="<div class='requests'>";
 						html+="<h4>"+subject+"</h4>";
-						html+="<p>"+desc+"</p>";
-						html+="<div>"+create_date+"</div>";
+						for (var i=0;i<comments.length;i++){
+							var c=comments[i];
+							var val=c.value;
+							var create_date=val['created_at'];
+							html+="<p>"+val+"</p>";
+							html+="<div>"+create_date+"</div>";
+						}
+						
 						html+="</div>";
 						$("#requests").append(html);
 						

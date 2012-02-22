@@ -4,7 +4,7 @@
 
 
 /**
- * 
+ * Create a new Request ticket in Zendesk with requester
  */
 function newRequest(param){
 	return zendesk.newRequest(param.subject,param.des,param.email);

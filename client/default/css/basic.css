@@ -10,7 +10,9 @@
 	
 }
 
-
+button{
+	height:20px;
+}
 .header ul{
 	list-style:none;
 	display:block;
