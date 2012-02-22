@@ -13,7 +13,7 @@ var stock={
 				if (res.stockInfo){
 					var stockInfoXmlStr=res.stockInfo;
 					var stockSymbol=res.stockSymbol;
-					$("#stockSymbol").text("Stock Symbol:"+stockSymbol);
+					$("#stockSymbol").text("Stock:"+stockSymbol);
 					$("#stockInfo").text(stockInfoXmlStr);
 				}
 			},
