@@ -158,7 +158,8 @@ button {
 }
 
 #euroSymbol {
-  font-size: 20em; 
+  font-size: 400px;
+  line-height: 340px; 
   color: #eee; 
   position: absolute; 
   bottom: 5px; 
