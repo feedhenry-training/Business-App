@@ -2,21 +2,6 @@
 /**
  * Use this Web service to figure out your monthly mortgage payment.
  */
-
-<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-	<soap:Body>
-		<GetMortgagePaymentResponse xmlns="http://www.webserviceX.NET/">
-			<GetMortgagePaymentResult>
-				<MonthlyPrincipalAndInterest>85.014582525821226</MonthlyPrincipalAndInterest>
-				<MonthlyTax>41.666666666666664</MonthlyTax>
-				<MonthlyInsurance>41.666666666666664</MonthlyInsurance>
-				<TotalPayment>168.34791585915454</TotalPayment>
-			</GetMortgagePaymentResult>
-		</GetMortgagePaymentResponse>
-	</soap:Body>
-</soap:Envelope>
-
-
 var mortgage = {
 	SOAPUrl : "http://www.webservicex.net/mortgage.asmx",
 	/**
