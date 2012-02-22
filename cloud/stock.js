@@ -41,7 +41,8 @@ var stock = {
 		
 	},
 	processSymbolRes : function(res) {
-		var removedHeadRes=res.replace("YAHOO.Finance.SymbolSuggest.ssCallback(",""); //remove jsonp callback header
+		var resBody=res.body;
+		var removedHeadRes=resBody.replace("YAHOO.Finance.SymbolSuggest.ssCallback(",""); //remove jsonp callback header
 		var removedTailRes=removedHeadRes.substr(0,removedHeadRes.length-1); //remove jsonp callback bracket
 		var resObj=$fh.parse(removedTailRes); //parse result to JSON object
 		return resObj.ResultSet.Result[0].symbol; //return the first matched stock symbol
