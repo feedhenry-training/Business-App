@@ -43,7 +43,7 @@ function bindEvents(){
 	$("#nav_support").bind("click",function(){
 		changePage("zendesk");
 	});
-	
+	changePage("stock");
 }
 
 
