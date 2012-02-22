@@ -47,11 +47,7 @@ var mortgage = {
 			period : 3600
 		 };
 		var res= $fh.web(opt);
-		
-		var start_index=res.body.indexOf("<GetMortgagePaymentResult>");
-		var end_tag="</GetMortgagePaymentResult>";
-		var end_index=res.body.indexOf(end_tag)+end_tag.length;
-		var xmlData=new XML(res.body.substring(start_index,end_index));
+		var xmlData=getSOAPElement("GetMortgagePaymentResult",res.body)
 		var rtnObj={
 			MonthlyPrincipalAndInterest:xmlData.MonthlyPrincipalAndInterest.toString(),
 			MonthlyTax:xmlData.MonthlyTax.toString(),

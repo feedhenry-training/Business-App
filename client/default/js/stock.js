@@ -8,12 +8,10 @@ var stock={
 					name:name
 				}
 			}, function(res) {
-				alert(JSON.stringify(res));
-				// if (res.status==="OK"){
-					// alert("Request has been created!");
-				// }else{
-					// alert("Error happened. Please try again.");
-				// }
+				if (res.stockInfo){
+					var stockInfoXmlStr=res.stockInfo;
+					$("#stockInfo").html(stockInfoXmlStr);
+				}
 			},
 				function(code,errorprops,params) {
 					alert("Error happened. Please try again.");
