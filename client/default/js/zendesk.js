@@ -5,6 +5,7 @@ var zendesk = {
 			if(subject == "" || description == "" || email == "") {
 				alert("Please input fields completely.");
 			}
+			loading(true);
 			$fh.act({
 				act : 'newRequest',
 				secure : false,
@@ -14,6 +15,7 @@ var zendesk = {
 					email:email
 				}
 			}, function(res) {
+				loading(false);
 				if (res.status==="OK"){
 					alert("Request has been created!");
 				}else{
@@ -21,12 +23,14 @@ var zendesk = {
 				}
 			},
 				function(code,errorprops,params) {
+					loading(false);
 					alert("Error happened. Please try again.");
 			});
 		}
 	},
 	listUserRequests:function(email){
 		if (email && email != ""){
+			loading(true);
 			$fh.act({
 				act:"listUserRequests",
 				secure:false,
@@ -34,6 +38,7 @@ var zendesk = {
 					email:email
 				}
 			},function(res){
+				loading(false);
 				if (res.status==="OK"){
 					var data=JSON.parse(res.data);
 					if (data.error){
@@ -68,6 +73,7 @@ var zendesk = {
 					alert("Error happened. Please try again.");
 				}
 			},function(){
+				loading(false);
 				alert("Error happened. Please try again.");
 			})
 		}

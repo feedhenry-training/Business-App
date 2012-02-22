@@ -5,3 +5,4 @@ function getSOAPElement(eleTagWithNS, SOAPRes) {
 	var xmlData = new XML(SOAPRes.substring(start_index, end_index));
 	return xmlData;
 }
+

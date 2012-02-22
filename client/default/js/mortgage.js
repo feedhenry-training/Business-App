@@ -5,6 +5,7 @@ mortgage={
 				alert("Please fill the fields.");
 				return;
 			}
+			loading(true);
 			$fh.act({
 				act : 'getMortgage',
 				secure : false,
@@ -16,6 +17,7 @@ mortgage={
 					insurance:insurance
 				}
 			}, function(res) {
+				loading(false);
 				alert(JSON.stringify(res));
 				// if (res.status==="OK"){
 					// alert("Request has been created!");
@@ -24,6 +26,7 @@ mortgage={
 				// }
 			},
 				function(code,errorprops,params) {
+					loading(false);
 					alert("Error happened. Please try again.");
 			});
 		}

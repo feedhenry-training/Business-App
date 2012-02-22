@@ -22,6 +22,7 @@ button{
 	margin-right:10px;
 	border-right:1px solid #ccc;
 	padding-right:10px;
+	color:#333;
 }
 
 .body{
@@ -65,4 +66,10 @@ button{
 
 .page.active{
 	display:block;
+}
+.loading{
+	display:none;
+	background:#ccc;
+	height:20px;
+	text-align:center;
 }

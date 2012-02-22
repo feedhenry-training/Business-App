@@ -21,3 +21,10 @@ function changePage(pageId){
 	lastView = nextView;
 	
 }
+function loading(isLoading){
+	if (isLoading){
+		$(".loading").show();
+	}else{
+		$(".loading").hide();
+	}
+}
