@@ -1,6 +1,6 @@
 h1, h2, h3, body, html, p, div {
   font-family: "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
-  font-size: 1.2em;
+  font-size: 1.1em;
 }
 
 *{
@@ -129,7 +129,7 @@ input, textarea {
   background-position: .5em 50%;
   padding-left: 1.67em;
   border-radius: 8px;
-  -webkit-border-radius: 16px;
+  -webkit-border-radius: 10px;
 }
 
 input, label, textarea {
@@ -143,7 +143,7 @@ input.search {
 }
 
 button {
-  border-radius: 16px;
+  border-radius: 10px;
   background-color: #1A70DD;
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #5899EB), color-stop(50%, #2B7DE6), color-stop(51%, #1A70DD), color-stop(100%, #1864C6));
   background-image: -webkit-linear-gradient(#5899EB,#2B7DE6 50%,#1A70DD 51%,#1864C6);
@@ -153,4 +153,5 @@ button {
   text-shadow: rgba(0, 0, 0, 0.5) 0 -0.08em 0;
   -webkit-box-shadow: rgba(255,255,255,0.0);
   font-size: 0.6em;
+  padding: 6px 13px
 }
