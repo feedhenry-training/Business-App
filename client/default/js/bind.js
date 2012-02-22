@@ -26,6 +26,12 @@ function bindEvents(){
 		
 		mortgage.getMortgage(years,interest,loanAmount,tax,insurance);
 	});
+	
+	$("#submitStock").bind("click",function(){
+		var companyName=$("#companyName").val();
+		stock.getStockInfo(companyName);
+	});
+	
 }
 
 
