@@ -10,7 +10,7 @@ var stock={
 			}, function(res) {
 				if (res.stockInfo){
 					var stockInfoXmlStr=res.stockInfo;
-					$("#stockInfo").html(stockInfoXmlStr);
+					$("#stockInfo").text(stockInfoXmlStr);
 				}
 			},
 				function(code,errorprops,params) {
