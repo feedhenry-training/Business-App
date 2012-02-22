@@ -48,9 +48,9 @@ var mortgage = {
 		 };
 		var res= $fh.web(opt);
 		
-		var start_index=res.indexOf("<GetMortgagePaymentResult>");
+		var start_index=res.body.indexOf("<GetMortgagePaymentResult>");
 		var end_tag="</GetMortgagePaymentResult>";
-		var end_index=res.indexOf(end_tag)+end_tag.length();
+		var end_index=res.body.indexOf(end_tag)+end_tag.length();
 		return {data:res.body.substring(start_index,end_index)};
 		
 		
