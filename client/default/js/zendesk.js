@@ -52,8 +52,8 @@ var zendesk = {
 						
 						html="<div class='requests'>";
 						html+="<h4>"+subject+"</h4>";
-						for (var i=0;i<comments.length;i++){
-							var c=comments[i];
+						for (var j=0;j<comments.length;j++){
+							var c=comments[j];
 							var val=c.value;
 							var create_date=val['created_at'];
 							html+="<p>"+val+"</p>";
