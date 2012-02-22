@@ -1,3 +1,6 @@
+/**
+ * Retrieve a XML object that is in SOAP response.
+ */
 function getSOAPElement(eleTagWithNS, SOAPRes) {
 	var start_index = SOAPRes.indexOf("<"+eleTagWithNS+">");
 	var end_tag = "</"+eleTagWithNS+">";
