@@ -110,7 +110,7 @@ h4 {
   text-transform: lowercase;
   margin: 10px 0px;
   padding-bottom: 4px;
-  font-size: 0.95em;
+  font-size: 0.75em;
 }
 
 
@@ -157,15 +157,4 @@ button {
   -webkit-box-shadow: rgba(255,255,255,0.0);
   font-size: 0.6em;
   padding: 6px 13px
-}
-
-#euroSymbol {
-  font-size: 200px;
-  line-height: 150px; 
-  color: #eee; 
-  position: absolute; 
-  bottom: 5px; 
-  right: 5px; 
-  z-index: -1; 
-  cursor: default;
 }
