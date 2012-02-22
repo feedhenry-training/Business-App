@@ -1,6 +1,6 @@
 h1, h2, h3, body, html, p, div {
   font-family: "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
-  font-size: 1.3em;
+  font-size: 1.2em;
 }
 
 *{
@@ -28,6 +28,7 @@ h1, h2, h3, body, html, p, div {
 }
 .header a{
   text-decoration: none;
+  font-size: 0.55em;
 	color:#fff;
 	padding: 5px 12px;
 	/* auto-gen'd*/
