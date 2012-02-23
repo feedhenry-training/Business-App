@@ -132,7 +132,7 @@ input, textarea {
   
   border-radius: 8px;
   -webkit-border-radius: 10px;
-  width:90%;
+  width:90% !important;
 }
 
 input, label, textarea {
