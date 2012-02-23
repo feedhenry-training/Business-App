@@ -138,7 +138,6 @@ input, textarea {
 input, label, textarea {
   font-size: 0.5em;
   display: inline-block;
-  width: 38%;
 }
 
 input.search {
@@ -177,4 +176,8 @@ button {
 
 #stock input {
 	padding-left: 1.67em;
+}
+
+#stockInfo{
+	font-size: 0.7em;
 }
