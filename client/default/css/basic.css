@@ -122,16 +122,17 @@ input, textarea {
   background-color: white;
   min-height: 0;
   -webkit-appearance: none;
-  padding: 0em 1.2em;
+  padding: 0em 0.2em 0 0.2em;
   margin: 0;
   -webkit-box-shadow: inset rgba(0,0,0,0.5);
   background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgba(255, 255, 255, 0.6)));
   -webkit-background-size: .83em .83em, .83em .83em;
   background-repeat: no-repeat;
   background-position: .5em 50%;
-  padding-left: 1.67em;
+  
   border-radius: 8px;
   -webkit-border-radius: 10px;
+  width:90%;
 }
 
 input, label, textarea {
@@ -157,4 +158,23 @@ button {
   -webkit-box-shadow: rgba(255,255,255,0.0);
   font-size: 0.6em;
   padding: 6px 13px
+}
+
+.requests h4{
+	font-size:1em;
+	margin:0;
+}
+.requests p{
+	font-size:0.5em;
+	margin:10px 0 10px 0;
+	padding-left:20px;
+	color:#333;
+}
+.requests div{
+	font-size:0.35em;
+	color:#aaa;
+}
+
+#stock input {
+	padding-left: 1.67em;
 }
