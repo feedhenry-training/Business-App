@@ -27,15 +27,6 @@ function bindEvents(){
 		mortgage.getMortgage(years,interest,loanAmount,tax,insurance);
 	});
 	
-	$("#submitStock").bind("click",function(){
-		var companyName=$("#companyName").val();
-		stock.getStockInfo(companyName);
-	});
-	
-	$("#nav_stock").bind("click",function(){
-		changePage("stock");
-	});
-	
 	$("#nav_mortgage").bind("click",function(){
 		changePage("mortgage");
 	});
@@ -43,7 +34,7 @@ function bindEvents(){
 	$("#nav_support").bind("click",function(){
 		changePage("zendesk");
 	});
-	changePage("stock");
+	changePage("zendesk");
 }
 
 
