@@ -109,7 +109,7 @@ Write client-side code and link those files. Check out v2 branch to explore to f
 ### Step 1 - Prepare
 #### Web service choosing
 
-Zendesk requests: Submit a new request or check reqests that have been assigned to a user
+Zendesk requests: Submit a new request or check requests that have been assigned to a user.
 
 #### Project Workbase
 * Create zendesk.js in cloud folder
@@ -257,11 +257,12 @@ Open zendesk.js in cloud folder and put the following code inside:
 
 
 
-## MASH UP (v4 Branch)
+## MASH UP - JSONP and SOAP(v4 Branch)
 
 ### Step 1 - Prepare
 #### Web service choosing
-
+Yahoo Finance: Look up company stock symbol using company name and then retrieve 
+information based on that stock symbol.
 
 #### Project Workbase
 * Create stock.js in cloud folder
