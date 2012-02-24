@@ -111,6 +111,8 @@ Write client-side code and link those files. Check out v2 branch to explore to f
 
 Zendesk requests: Submit a new request or check requests that have been assigned to a user.
 
+ZenDesk URL: https://fhbusiness.zendesk.com
+
 #### Project Workbase
 * Create zendesk.js in cloud folder
 * Create zendesk.js in js folder on client
@@ -267,7 +269,7 @@ Yahoo API: http://d.yimg.com/autoc.finance.yahoo.com/autoc?query={0}&callback=YA
 
 WebServiceX: Retrieve company information based on stock symbol.
 
-WebServiceX: http://www.webservicex.net/stockquote.asmx
+WebServiceX API: http://www.webservicex.net/stockquote.asmx
 
 #### Project Workbase
 * Create stock.js in cloud folder
@@ -277,7 +279,7 @@ WebServiceX: http://www.webservicex.net/stockquote.asmx
 ---------------------------------------
 Open stock.js in cloud folder and put the following code inside:
 
-                              /**
+            /**
              * Mash multiple business apis returned data.
              * Stock Symble lookup: Using YAHOO API. JSONP
              * Stock Info lookup: Using WebServiceX API . SOAP
