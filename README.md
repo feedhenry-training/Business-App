@@ -111,7 +111,7 @@ Write client-side code and link those files. Check out v2 branch to explore to f
 
 Zendesk requests: Submit a new request or check requests that have been assigned to a user.
 
-ZenDesk URL: https://fhbusiness.zendesk.com
+Zendesk URL: https://fhbusiness.zendesk.com
 
 #### Project Workbase
 * Create zendesk.js in cloud folder
