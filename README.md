@@ -262,7 +262,12 @@ Open zendesk.js in cloud folder and put the following code inside:
 ### Step 1 -- Prepare
 #### Web service choosing
 Yahoo Finance: Look up company stock symbol using company name.
+
+Yahoo API: http://d.yimg.com/autoc.finance.yahoo.com/autoc?query={0}&callback=YAHOO.Finance.SymbolSuggest.ssCallback
+
 WebServiceX: Retrieve company information based on stock symbol.
+
+WebServiceX: http://www.webservicex.net/stockquote.asmx
 
 #### Project Workbase
 * Create stock.js in cloud folder
