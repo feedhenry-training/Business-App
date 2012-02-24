@@ -363,3 +363,4 @@ Open stock.js in cloud folder and put the following code inside:
                         return resObj.ResultSet.Result[0].symbol; //return the first matched stock symbol
                   }
             }
+            
