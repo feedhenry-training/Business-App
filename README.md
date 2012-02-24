@@ -106,7 +106,7 @@ Write client-side code and link those files. Check out v2 branch to explore to f
 
 ## REST Service Integration (v3 Branch)
 
-### Step 1 - Prepare
+### Step 1 -- Prepare
 #### Web service choosing
 
 Zendesk requests: Submit a new request or check requests that have been assigned to a user.
@@ -115,7 +115,7 @@ Zendesk requests: Submit a new request or check requests that have been assigned
 * Create zendesk.js in cloud folder
 * Create zendesk.js in js folder on client
 
-### Step 2 - Implementation
+### Step 2 --- Implementation
 ---------------------------------------
 Open zendesk.js in cloud folder and put the following code inside: 
 
@@ -257,18 +257,18 @@ Open zendesk.js in cloud folder and put the following code inside:
 
 
 
-## MASH UP - JSONP and SOAP(v4 Branch)
+## MASH UP - JSONP and SOAP (v4 Branch)
 
-### Step 1 - Prepare
+### Step 1 -- Prepare
 #### Web service choosing
-Yahoo Finance: Look up company stock symbol using company name and then retrieve 
-information based on that stock symbol.
+Yahoo Finance: Look up company stock symbol using company name.
+WebServiceX: Retrieve company information based on stock symbol.
 
 #### Project Workbase
 * Create stock.js in cloud folder
 * Create stock.js in js folder on client
 
-### Step 2 - Implementation
+### Step 2 --- Implementation
 ---------------------------------------
 Open stock.js in cloud folder and put the following code inside:
 
