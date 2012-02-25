@@ -30,8 +30,6 @@ function getStockInfo(param) {
 	return stock.getStockInfo(param.name);
 }
 
-exports.test = function() {
-	return {
-		aa : "helo"
-	};
+exports.beep = function() {
+	callback(undefined, {hello:"world"});
 }
