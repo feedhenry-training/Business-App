@@ -30,6 +30,12 @@ function getStockInfo(param) {
 	return stock.getStockInfo(param.name);
 }
 
+
+exports.newRequest=newRequest;
+exports.listUserRequests=listUserRequests;
+exports.getMortgage=getMortgage;
+exports.getStockInfo=getStockInfo;
+
 exports.beep = function() {
 	callback(undefined, {hello:"world"});
 }
