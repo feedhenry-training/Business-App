@@ -30,12 +30,6 @@ function getStockInfo(param) {
 	return stock.getStockInfo(param.name);
 }
 
-exports = {
-	newRequest : newRequest,
-	listUserRequests : listUserRequests,
-	getMortgage : getMortgage,
-	getStockInfo : getStockInfo
-}
 exports.test = function() {
 	return {
 		aa : "helo"
