@@ -23,10 +23,13 @@ function getMortgage(param) {
 	return mortgage.getMortgage(param.years, param.interest, param.loanAmount, param.tax, param.insurance);
 }
 
+
+
+
 /**
  * Get stock symbol and detailed information by company name
  */
-function getStockInfo(param) {
+function getStockInfo(param,callback) {
 	callback(undefined, {hello:"world"});
 }
 
