@@ -3,7 +3,7 @@
  */
 //var zendesk=require("./zendesk");
 var mortgage=require("./mortgage");
-//var stock=require("./stock");
+var stock=require("./stock");
 
 
 
