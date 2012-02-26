@@ -4,6 +4,8 @@
  * Stock Info lookup: Using WebServiceX API . SOAP
  *
  */
+var util=require("./util");
+
 
 
 var stock = {
@@ -52,7 +54,7 @@ var stock = {
 			//Perform webcall
 			$fh.web(opt, function(err, res) {
 				//getSOAPElement will retrieve specific XML object within SOAP response
-				var xmlData = getSOAPElement("GetQuoteResult", res.body);
+				var xmlData = util.getSOAPElement("GetQuoteResult", res.body);
 
 				//mash up the data and return to client.
 				callback(err, {
