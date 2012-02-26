@@ -29,6 +29,7 @@ var stock = {
 			charset : "UTF-8",
 			period : 3600
 		}, function(err, symbolRes) {
+			callback(undefined,symbolRes);
 			//Clear up YAHOO response and only keep the information "stock symbol" we need.
 			var stockSymbol = stock.processSymbolRes(symbolRes);
 
