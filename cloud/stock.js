@@ -18,6 +18,7 @@ var stock = {
 	getStockInfo : function(name) {
 		//Compose request url using user input.
 		var yahooApiUrl = this.yahooApi.replace("{0}", name);
+		return {url:yahooApiUrl};
 		/*
 		 * Perform Webcall
 		 * Raw response from YAHOO JSONP api which contains stock symbol as well as other information we do not want.
