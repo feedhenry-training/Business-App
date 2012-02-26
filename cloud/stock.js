@@ -29,7 +29,6 @@ var stock = {
 			charset : "UTF-8",
 			period : 3600
 		}, function(err, symbolRes) {
-			callback(undefined,symbolRes);
 			//Clear up YAHOO response and only keep the information "stock symbol" we need.
 			var stockSymbol = stock.processSymbolRes(symbolRes);
 
@@ -52,6 +51,7 @@ var stock = {
 			//Perform webcall
 			$fh.web(opt, function(err, res) {
 				//getSOAPElement will retrieve specific XML object within SOAP response
+				callback(undefined,res);
 				var xmlData = getSOAPElement("GetQuoteResult", res.body)
 
 				//mash up the data and return to client.
