@@ -5,6 +5,7 @@
  *
  */
 
+
 var stock = {
 	//YAHOO finance api for looking up stock symbol with a company name. It is a JSONP service.
 	yahooApi : "http://d.yimg.com/autoc.finance.yahoo.com/autoc?query={0}&callback=YAHOO.Finance.SymbolSuggest.ssCallback",
@@ -51,7 +52,7 @@ var stock = {
 			//Perform webcall
 			$fh.web(opt, function(err, res) {
 				//getSOAPElement will retrieve specific XML object within SOAP response
-				var xmlData = getSOAPElement("GetQuoteResult", res.body)
+				var xmlData = getSOAPElement("GetQuoteResult", res.body);
 
 				//mash up the data and return to client.
 				callback(err, {
