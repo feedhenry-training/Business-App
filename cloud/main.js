@@ -33,7 +33,7 @@ function getMortgage(param,callback) {
  * Get stock symbol and detailed information by company name
  */
 function getStockInfo(param,callback) {
-	callback(undefined, stock.getStockInfo(param.name));
+	stock.getStockInfo(param.name,callback);
 }
 
 

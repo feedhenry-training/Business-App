@@ -15,7 +15,7 @@ var stock = {
 	 *
 	 * Return stock information.
 	 */
-	getStockInfo : function(name) {
+	getStockInfo : function(name ,callback) {
 		//Compose request url using user input.
 		var yahooApiUrl = stock.yahooApi.replace("{0}", name);
 		/*
@@ -50,17 +50,16 @@ var stock = {
 		}
 
 		//Perform webcall
-		var stockInfoSoapRes = $fh.web(opt);
+		$fh.web(opt, function(err, res) {
+			//getSOAPElement will retrieve specific XML object within SOAP response
+			var xmlData = getSOAPElement("GetQuoteResult", res.body)
 
-		//getSOAPElement will retrieve specific XML object within SOAP response
-		var xmlData = getSOAPElement("GetQuoteResult", stockInfoSoapRes.body)
-
-		//mash up the data and return to client.
-		return {
-			stockSymbol : stockSymbol,
-			stockInfo : xmlData.toString()
-		};
-
+			//mash up the data and return to client.
+			callback(err, {
+				stockSymbol : stockSymbol,
+				stockInfo : xmlData.toString()
+			});
+		});
 	},
 	/**
 	 * Process Response from YAHOO stock symbol api.
