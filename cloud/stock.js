@@ -82,3 +82,5 @@ var stock = {
 		return resObj.ResultSet.Result[0].symbol; //return the first matched stock symbol
 	}
 }
+
+exports.getStockInfo=stock.getStockInfo;

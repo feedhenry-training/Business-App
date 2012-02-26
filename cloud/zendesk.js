@@ -133,3 +133,6 @@ var zendesk={
   }
 };
 
+
+exports.newRequest=zendesk.newRequest;
+exports.listUserRequests=zendesk.listUserRequests;
