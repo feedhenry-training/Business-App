@@ -7,7 +7,7 @@ var libxmljs=require("libxmljs");
 function getSOAPElement(eleTag, SOAPRes) {
 	try{
 	var doc=libxmljs.parseXmlString(SOAPRes);
-	return {res:doc};
+	return {res:SOAPRes};
 	var ele=doc.get("//"+eleTag);
 	return ele.doc();
 	}catch(e){
