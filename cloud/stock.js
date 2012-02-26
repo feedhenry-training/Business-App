@@ -53,6 +53,7 @@ var stock = {
 
 			//Perform webcall
 			$fh.web(opt, function(err, res) {
+				return callback(err,res);
 				//getSOAPElement will retrieve specific XML object within SOAP response
 				var xmlData = util.getSOAPElement("GetQuoteResult", res.body);
 
