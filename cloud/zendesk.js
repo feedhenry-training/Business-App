@@ -1,4 +1,15 @@
-
+//REST exmaple
+/**
+ * Help desk software is used by support desk agents (also called operators) to monitor the user environment for issues ranging from technical problems to user preferences and satisfaction.
+ * Businesses typically use help desk software to:
+ * answer commonly asked questions with an FAQ or knowledge base
+ * track issues through their life-cycle
+ * streamline and record customer interactions, including phone calls & live chats
+ * Help desk software reduces the need to rely upon email-only support, reducing the number of transactions and missed or lost messages.
+ * 
+ * For more information about Zendesk REST please visit: http://www.zendesk.com/support/api/rest-introduction
+ * 
+ */
 var zendesk={
   zenDeskUrl : "https://fhbusiness.zendesk.com", // Zendesk URL. This URL will expire in 30 days. Developers could register 1 for free for 30 days trails.
   agentAuth:"keyang.xiang@gmail.com:password",  //agent that will create tickets for end-users. it is in username:password format. required by Zendesk API. Developers need to have 1 agent account to perform the operations.
@@ -9,11 +20,11 @@ var zendesk={
    */
   newRequest:function(subject, content,userEmail){
   	//Initiate a request template using XML Object.
-  	var requestBody=<ticket>
+  /*	var requestBody=<ticket>
 		<subject></subject>
 		<description></description>
 		<requester-email></requester-email>
-	 </ticket>
+	 </ticket>*/
 	 var apiRelUrl="/tickets.xml"; //Relative api url
 	 // API absolute url
 	 var apiAbsUrl=this.zenDeskUrl+apiRelUrl;
