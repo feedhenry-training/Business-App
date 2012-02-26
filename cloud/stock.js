@@ -23,12 +23,12 @@ var stock = {
 		 * Raw response from YAHOO JSONP api which contains stock symbol as well as other information we do not want.
 		 *
 		 */
-		var symbolRes = $fh.web({
+		 $fh.web({
 			url : yahooApiUrl,
 			method : "GET",
 			charset : "UTF-8",
 			period : 3600
-		}, function(err, res) {
+		}, function(err, symbolRes) {
 			//Clear up YAHOO response and only keep the information "stock symbol" we need.
 			var stockSymbol = stock.processSymbolRes(symbolRes);
 
