@@ -11,3 +11,4 @@ function getSOAPElement(eleTag, SOAPRes) {
 }
 
 exports.getSOAPElement=getSOAPElement;
+exports.aa="hello";
