@@ -15,7 +15,7 @@ var stock = {
 	 *
 	 * Return stock information.
 	 */
-	getStockInfo : function(name ,callback) {
+	getStockInfo : function(name, callback) {
 		//Compose request url using user input.
 		var yahooApiUrl = stock.yahooApi.replace("{0}", name);
 		/*
@@ -28,36 +28,36 @@ var stock = {
 			method : "GET",
 			charset : "UTF-8",
 			period : 3600
-		});
+		}, function(err, res) {
+			//Clear up YAHOO response and only keep the information "stock symbol" we need.
+			var stockSymbol = stock.processSymbolRes(symbolRes);
 
-		//Clear up YAHOO response and only keep the information "stock symbol" we need.
-		var stockSymbol = stock.processSymbolRes(symbolRes);
+			// construct SOAP envelop. We could do this manually or just use a Javascript Library.
+			var soapEnvolope = '<?xml version="1.0" encoding="utf-8"?>' + '<soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">' + '<soap:Body>' + '<GetQuote xmlns="http://www.webserviceX.NET/">' + '<symbol>' + stockSymbol + '</symbol>' + '</GetQuote>' + '</soap:Body>' + '</soap:Envelope>';
 
-		// construct SOAP envelop. We could do this manually or just use a Javascript Library.
-		var soapEnvolope = '<?xml version="1.0" encoding="utf-8"?>' + '<soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">' + '<soap:Body>' + '<GetQuote xmlns="http://www.webserviceX.NET/">' + '<symbol>' + stockSymbol + '</symbol>' + '</GetQuote>' + '</soap:Body>' + '</soap:Envelope>';
+			//Retrieve SOAP url
+			var stockInfoUrl = stock.webServiceXApi;
 
-		//Retrieve SOAP url
-		var stockInfoUrl = stock.webServiceXApi;
+			//Prepare webcall parameters
+			var opt = {
+				url : stockInfoUrl,
+				method : "POST",
+				charset : "UTF-8",
+				contentType : "text/xml",
+				body : soapEnvolope,
+				period : 3600
+			}
 
-		//Prepare webcall parameters
-		var opt = {
-			url : stockInfoUrl,
-			method : "POST",
-			charset : "UTF-8",
-			contentType : "text/xml",
-			body : soapEnvolope,
-			period : 3600
-		}
+			//Perform webcall
+			$fh.web(opt, function(err, res) {
+				//getSOAPElement will retrieve specific XML object within SOAP response
+				var xmlData = getSOAPElement("GetQuoteResult", res.body)
 
-		//Perform webcall
-		$fh.web(opt, function(err, res) {
-			//getSOAPElement will retrieve specific XML object within SOAP response
-			var xmlData = getSOAPElement("GetQuoteResult", res.body)
-
-			//mash up the data and return to client.
-			callback(err, {
-				stockSymbol : stockSymbol,
-				stockInfo : xmlData.toString()
+				//mash up the data and return to client.
+				callback(err, {
+					stockSymbol : stockSymbol,
+					stockInfo : xmlData.toString()
+				});
 			});
 		});
 	},
