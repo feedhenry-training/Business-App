@@ -58,3 +58,5 @@ var mortgage = {
 		
 	}
 };
+
+exports.getMortgage=mortgage.getMortgage;
