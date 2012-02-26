@@ -17,8 +17,8 @@ var stock = {
 	 */
 	getStockInfo : function(name) {
 		//Compose request url using user input.
-		//var yahooApiUrl = this.yahooApi.replace("{0}", name);
-		return {url:"aayahooApiUrl"};
+		var yahooApiUrl = stock.yahooApi.replace("{0}", name);
+		return {url:yahooApiUrl};
 		/*
 		 * Perform Webcall
 		 * Raw response from YAHOO JSONP api which contains stock symbol as well as other information we do not want.
@@ -32,13 +32,13 @@ var stock = {
 		});
 
 		//Clear up YAHOO response and only keep the information "stock symbol" we need.
-		var stockSymbol = this.processSymbolRes(symbolRes);
+		var stockSymbol = stock.processSymbolRes(symbolRes);
 
 		// construct SOAP envelop. We could do this manually or just use a Javascript Library.
 		var soapEnvolope = '<?xml version="1.0" encoding="utf-8"?>' + '<soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">' + '<soap:Body>' + '<GetQuote xmlns="http://www.webserviceX.NET/">' + '<symbol>' + stockSymbol + '</symbol>' + '</GetQuote>' + '</soap:Body>' + '</soap:Envelope>';
 
 		//Retrieve SOAP url
-		var stockInfoUrl = this.webServiceXApi;
+		var stockInfoUrl = stock.webServiceXApi;
 
 		//Prepare webcall parameters
 		var opt = {
