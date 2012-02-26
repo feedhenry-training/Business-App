@@ -21,52 +21,44 @@ var stock = {
 		/*
 		 * Perform Webcall
 		 * Raw response from YAHOO JSONP api which contains stock symbol as well as other information we do not want.
-		 * 
-		 */ 
+		 *
+		 */
 		var symbolRes = $fh.web({
 			url : yahooApiUrl,
-			method:"GET",
-			charset:"UTF-8",
-			period:3600
+			method : "GET",
+			charset : "UTF-8",
+			period : 3600
 		});
 
 		//Clear up YAHOO response and only keep the information "stock symbol" we need.
 		var stockSymbol = this.processSymbolRes(symbolRes);
 
 		// construct SOAP envelop. We could do this manually or just use a Javascript Library.
-		var soapEnvolope='<?xml version="1.0" encoding="utf-8"?>'
-							+'<soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">'
-							+  '<soap:Body>'
-							+    '<GetQuote xmlns="http://www.webserviceX.NET/">'
-							+      '<symbol>'+stockSymbol+'</symbol>'
-							+    '</GetQuote>'
-							+  '</soap:Body>'
-							+'</soap:Envelope>';
+		var soapEnvolope = '<?xml version="1.0" encoding="utf-8"?>' + '<soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">' + '<soap:Body>' + '<GetQuote xmlns="http://www.webserviceX.NET/">' + '<symbol>' + stockSymbol + '</symbol>' + '</GetQuote>' + '</soap:Body>' + '</soap:Envelope>';
 
 		//Retrieve SOAP url
-		var stockInfoUrl=this.webServiceXApi;
+		var stockInfoUrl = this.webServiceXApi;
 
 		//Prepare webcall parameters
-		var opt={
-			url:stockInfoUrl,
-			method:"POST",
-			charset:"UTF-8",
-			contentType:"text/xml",
-			body:soapEnvolope,
-			period:3600
+		var opt = {
+			url : stockInfoUrl,
+			method : "POST",
+			charset : "UTF-8",
+			contentType : "text/xml",
+			body : soapEnvolope,
+			period : 3600
 		}
 
 		//Perform webcall
-		var stockInfoSoapRes=$fh.web(opt);
+		var stockInfoSoapRes = $fh.web(opt);
 
 		//getSOAPElement will retrieve specific XML object within SOAP response
-		var xmlData=getSOAPElement("GetQuoteResult",stockInfoSoapRes.body)
-
+		var xmlData = getSOAPElement("GetQuoteResult", stockInfoSoapRes.body)
 
 		//mash up the data and return to client.
-		return { 
-			stockSymbol:stockSymbol,
-			stockInfo:xmlData.toString()
+		return {
+			stockSymbol : stockSymbol,
+			stockInfo : xmlData.toString()
 		};
 
 	},
@@ -75,12 +67,16 @@ var stock = {
 	 * It will clear up the response and only return stock symbol as string.
 	 */
 	processSymbolRes : function(res) {
-		var resBody=res.body;
-		var removedHeadRes=resBody.replace("YAHOO.Finance.SymbolSuggest.ssCallback(",""); //remove jsonp callback header
-		var removedTailRes=removedHeadRes.substr(0,removedHeadRes.length-1); //remove jsonp callback bracket
-		var resObj=$fh.parse(removedTailRes); //parse result to JSON object
-		return resObj.ResultSet.Result[0].symbol; //return the first matched stock symbol
+		var resBody = res.body;
+		var removedHeadRes = resBody.replace("YAHOO.Finance.SymbolSuggest.ssCallback(", "");
+		//remove jsonp callback header
+		var removedTailRes = removedHeadRes.substr(0, removedHeadRes.length - 1);
+		//remove jsonp callback bracket
+		var resObj = $fh.parse(removedTailRes);
+		//parse result to JSON object
+		return resObj.ResultSet.Result[0].symbol;
+		//return the first matched stock symbol
 	}
 }
 
-exports.getStockInfo=stock.getStockInfo;
+exports.getStockInfo = stock.getStockInfo;
