@@ -56,7 +56,7 @@ var stock = {
 				
 				//getSOAPElement will retrieve specific XML object within SOAP response
 				var xmlData = util.getSOAPElement("GetQuoteResult", res.body);
-				return callback(err,res);
+				return callback(err,xmlData);
 				//mash up the data and return to client.
 				callback(err, {
 					stockSymbol : stockSymbol,
