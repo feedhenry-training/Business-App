@@ -5,7 +5,7 @@
  *
  */
 var util=require("./util");
-var soap=require("soap");
+
 
 
 var stock = {
@@ -34,20 +34,12 @@ var stock = {
 		}, function(err, symbolRes) {
 			//Clear up YAHOO response and only keep the information "stock symbol" we need.
 			var stockSymbol = stock.processSymbolRes(symbolRes);
-			//Retrieve SOAP url
-			var stockInfoUrl = stock.webServiceXApi;
-			var args={symbol:stockSymbol};
-			soap.createClient(stockInfoUrl,function(err,client){
-				client.GetQuote(args,function(err,res){
-					callback(err,res);
-				});
-			});
-			
-			
-			/*// construct SOAP envelop. We could do this manually or just use a Javascript Library.
+
+			// construct SOAP envelop. We could do this manually or just use a Javascript Library.
 			var soapEnvolope = '<?xml version="1.0" encoding="utf-8"?>' + '<soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">' + '<soap:Body>' + '<GetQuote xmlns="http://www.webserviceX.NET/">' + '<symbol>' + stockSymbol + '</symbol>' + '</GetQuote>' + '</soap:Body>' + '</soap:Envelope>';
 
-			
+			//Retrieve SOAP url
+			var stockInfoUrl = stock.webServiceXApi;
 
 			//Prepare webcall parameters
 			var opt = {
@@ -63,16 +55,16 @@ var stock = {
 			$fh.web(opt, function(err, res) {
 				
 				//getSOAPElement will retrieve specific XML object within SOAP response
-				var xmlData = util.getSOAPElement("GetQuoteResult", res.body);
-				return callback(err,xmlData);
+				util.getSOAPElement("GetQuoteResult", res.body,function(err,res){
+					return callback(err,res);
+				});
+				
 				//mash up the data and return to client.
 				callback(err, {
 					stockSymbol : stockSymbol,
 					stockInfo : xmlData.toString()
 				});
-			});*/
-			
-			
+			});
 		});
 	},
 	/**
