@@ -110,8 +110,7 @@ var zendesk = {
 			//host : zendesk.zenDeskUrl,
 			/*path:url,*/
 			/*auth:auth,*/
-			host:"www.google.com",
-			method : "GET"
+			host:"www.google.com"
 			//port:443
 		};
 		/*if(userOpt != undefined) {
@@ -122,7 +121,6 @@ var zendesk = {
 		}*/
 		
 		var http=require("http");
-		cb(undefined,opt);
 		// log(opt);
 		var req=http.request(opt,function(res){
 				cb(undefined,res);
