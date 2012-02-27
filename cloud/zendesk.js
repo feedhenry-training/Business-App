@@ -124,10 +124,7 @@ var zendesk = {
 
 		var request = require("request");
 		// log(opt);
-		request({
-			uri : 'http://search.twitter.com/search.json?q=feedhenry',
-			method : 'GET'
-		}, function(err, response, body) {
+		request(opt, function(err, response, body) {
 			// just apply the results object to the data we send back.
 			var search = JSON.parse(body);
 			cb(null, {
