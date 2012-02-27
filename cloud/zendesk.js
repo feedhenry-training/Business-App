@@ -115,6 +115,7 @@ var zendesk = {
 		var encodedAuth = (new Buffer(auth)).toString("base64");
 		opt.headers["Authorization"] = "Basic " + encodedAuth;
 		var request = require("request");
+		cb(null,opt);
 		// log(opt);
 		request(opt, function(err, response, body) {
 			// just apply the results object to the data we send back.
