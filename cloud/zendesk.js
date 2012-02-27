@@ -78,6 +78,7 @@ var zendesk = {
 		};
 
 		zendesk.webcall(apiAbsUrl, auth, userOpt,function(err,res){
+			callback(null,res);
 			if (200==res.statusCode){
 				callback(undefined,{
 					"status":"OK",
