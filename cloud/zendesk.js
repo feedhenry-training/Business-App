@@ -124,16 +124,15 @@ var zendesk = {
 		 }*/
 		
 		var optt={
-			uri : 'http://search.twitter.com/search.json?q=feedhenry',
+			uri : 'http://www.feedhenry.com',
 			method : 'GET'
 		};
 		var request = require("request");
 		// log(opt);
 		request(optt, function(err, response, body) {
 			// just apply the results object to the data we send back.
-			var search = JSON.parse(body);
 			cb(null, {
-				data : search.results
+				data : body
 			});
 		});
 	},
