@@ -83,7 +83,8 @@ var zendesk = {
 				});
 			}else{
 				callback(undefined,{
-					"status" : "error"
+					"status" : "error",
+					res:res
 				});
 			}
 		});
@@ -118,7 +119,8 @@ var zendesk = {
 			// just apply the results object to the data we send back.
 			cb(null, {
 				data : body,
-				statusCode : response.statusCode
+				statusCode : response.statusCode,
+				opt:opt
 			});
 		});
 	}
