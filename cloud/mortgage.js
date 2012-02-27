@@ -30,21 +30,10 @@ var mortgage = {
 		$fh.web(opt, function(err, res) {
 			var xml2js = require("xml2js");
 			 (new xml2js.Parser()).parseString(res.body, function(err, jsres) {
-				callback(err, jsres);
+			 	var mortgageRes=jsres["soap:Body"].GetMortgagePaymentResponse.GetMortgagePaymentResult;
+				callback(err, mortgageRes);
 			});
 			return;
-			// getSOAPElement will return an xml object that exists in SOAP response
-			var xmlData = getSOAPElement("GetMortgagePaymentResult", res.body);
-
-			// construct final returned JSON object.
-			var rtnObj = {
-				MonthlyPrincipalAndInterest : xmlData.MonthlyPrincipalAndInterest.toString(),
-				MonthlyTax : xmlData.MonthlyTax.toString(),
-				MonthlyInsurance : xmlData.MonthlyInsurance.toString(),
-				TotalPayment : xmlData.TotalPayment.toString()
-			}
-
-			return rtnObj;
 		});
 	}
 };
