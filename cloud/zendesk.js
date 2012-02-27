@@ -71,7 +71,7 @@ var zendesk = {
 
 		//Prepare REST call
 		var agentHeader = zendesk.agentHeader;
-		var userOpt = {};
+		var userOpt = {headers:{}};
 		userOpt.headers[agentHeader]=userEmail;//!important, this header is required by Zendesk REST api to tell Zendesk that an agent is performing this action for an end-user. checkout:http://www.zendesk.com/support/api/rest-introduction
 
 		zendesk.webcall(apiAbsUrl, auth, userOpt,function(err,res){
