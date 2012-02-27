@@ -108,7 +108,7 @@ var zendesk = {
 		}
 		var opt = {
 			host : zendesk.zenDeskUrl,
-			path:url,
+			/*path:url,*/
 			/*auth:auth,*/
 			method : "GET",
 			port:443
