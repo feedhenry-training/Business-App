@@ -106,7 +106,6 @@ var zendesk = {
 		}
 		var base64=require("./base64");
 		var encodedAuth = base64.base64.encode(auth);
-		cb(undefined,encodedAuth);
 		var opt = {
 			url : url,
 			method : "GET",
