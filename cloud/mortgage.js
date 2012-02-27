@@ -9,7 +9,7 @@ var mortgage = {
 	 * Calc mortgaeg based on user input.
 	 * Tutorial: How to wrap SOAP message and unwrap SOAP response.
 	 */
-	getMortgage : function(years, interest, loanAmount, tax, insurance,callback) {
+	getMortgage : function(years, interest, loanAmount, tax, insurance, callback) {
 		/**
 		 * Since SOAP calls are wrapped HTTP calls, in Javascript we have to wrap SOAP envelope manually or using a SOAP library in Javascript
 		 */
@@ -27,12 +27,12 @@ var mortgage = {
 		};
 
 		//Feedhenry Web Call
-		var res = $fh.web(opt, function(err, res) {
-			var xml2js=require ("xml2js");
-			return (new xml2js.Parser()).parseString(res.body,function(err,jsres){
-				callback(err,jsres);
+		$fh.web(opt, function(err, res) {
+			var xml2js = require("xml2js");
+			 (new xml2js.Parser()).parseString(res.body, function(err, jsres) {
+				callback(err, jsres);
 			});
-			
+			return;
 			// getSOAPElement will return an xml object that exists in SOAP response
 			var xmlData = getSOAPElement("GetMortgagePaymentResult", res.body);
 
