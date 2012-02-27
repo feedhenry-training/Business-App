@@ -26,7 +26,7 @@ function listUserRequests(param,callback) {
  * Calculate mortgage with user input
  */
 function getMortgage(param,callback) {
-	callback(undefined, mortgage.getMortgage(param.years, param.interest, param.loanAmount, param.tax, param.insurance));
+	mortgage.getMortgage(param.years, param.interest, param.loanAmount, param.tax, param.insurance,callback);
 }
 
 /**
