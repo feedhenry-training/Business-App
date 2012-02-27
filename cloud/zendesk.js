@@ -51,7 +51,8 @@ var zendesk = {
 				});
 			} else {
 				callback(undefined, {
-					"status" : "error"
+					"status" : "error",
+					"res":res
 				});
 			}
 
