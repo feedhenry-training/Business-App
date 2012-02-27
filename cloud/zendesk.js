@@ -44,9 +44,8 @@ var zendesk = {
 		//perform webcall
 		zendesk.webcall(apiRelUrl, auth, userOpt, function(err, res) {
 			callback(err,{res:res});
-			
 			//check status header returned
-			var status = zendesk.getHeader(res, "Status");
+			/*var status = zendesk.getHeader(res, "Status");
 			if("201 Created" === status) {
 				return {
 					"status" : "OK"
@@ -55,7 +54,7 @@ var zendesk = {
 				return {
 					"status" : "error"
 				};
-			}
+			}*/
 
 		});
 	},
