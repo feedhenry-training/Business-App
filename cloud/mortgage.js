@@ -28,8 +28,6 @@ var mortgage = {
 
 		//Feedhenry Web Call
 		$fh.web(opt, function(err, res) {
-			callback(err,res);
-			return;
 			var xml2js = require("xml2js");
 			 (new xml2js.Parser()).parseString(res.body, function(err, jsres) {
 				callback(err, jsres);
