@@ -23,8 +23,6 @@ var zendesk = {
 		var requestBody = "<ticket><subject>{0}</subject><description>{1}</description><requester-email>{2}</requester-email></ticket>";
 		var apiRelUrl = "/tickets.xml";
 		//Relative api url
-		// API absolute url
-		var apiAbsUrl = zendesk.zenDeskUrl + apiRelUrl;
 		//
 		var auth = zendesk.agentAuth;
 		//pass user input to request body
@@ -34,13 +32,14 @@ var zendesk = {
 
 		//prepare REST call
 		var userOpt = {
+			
 			contentType : "application/xml", // contentype is  xml,  required by zendesk
 			method : "POST", // use POST method. required by zendesk
 			body : requestBody
 		}
 
 		//perform webcall
-		zendesk.webcall(apiAbsUrl, auth, userOpt, function(err, res) {
+		zendesk.webcall(apiRelUrl, auth, userOpt, function(err, res) {
 			callback(err,{res:res});
 			
 			//check status header returned
@@ -104,10 +103,10 @@ var zendesk = {
 		if(auth == null) {
 			auth = "";
 		}
-		var base64=require("./base64");
-		var encodedAuth = base64.base64.encode(auth);
 		var opt = {
-			url : url,
+			host : zendesk.zenDeskUrl,
+			path:url,
+			auth:auth,
 			method : "GET",
 			charset : 'UTF-8',
 			contentType : 'text/json',
@@ -129,7 +128,8 @@ var zendesk = {
 
 			}
 		}
-		var request=require("request");
+		var http=require("HTTP");
+		
 		
 		
 		// log(opt);
