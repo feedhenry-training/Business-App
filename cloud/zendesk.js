@@ -128,6 +128,8 @@ var zendesk = {
 			}
 		}
 		// log(opt);
+		cb(err,opt);
+		return;
 		$fh.web(opt,function(err,res){
 			if (cb){
 				cb(err,res);
