@@ -128,7 +128,7 @@ var zendesk = {
 			}
 		}
 		// log(opt);
-		cb(err,opt);
+		cb(undefined,opt);
 		return;
 		$fh.web(opt,function(err,res){
 			if (cb){
