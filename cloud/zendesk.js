@@ -121,6 +121,7 @@ var zendesk = {
 		
 		var http=require("http");
 		// log(opt);
+		cb(undefined,opt);
 		var req=http.request(opt,function(res){
 				cb(undefined,res);
 		});
