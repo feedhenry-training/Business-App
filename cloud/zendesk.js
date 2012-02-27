@@ -11,7 +11,6 @@
  *
  */
 
-var http=require("http");
 var zendesk = {
 	zenDeskUrl : "https://fhbusiness.zendesk.com", // Zendesk URL. This URL will expire in 30 days. Developers could register 1 for free for 30 days trails.
 	agentAuth : "keyang.xiang@gmail.com:password", //agent that will create tickets for end-users. it is in username:password format. required by Zendesk API. Developers need to have 1 agent account to perform the operations.
@@ -34,10 +33,11 @@ var zendesk = {
 
 		//prepare REST call
 		var userOpt = {
-			
-			contentType : "application/xml", // contentype is  xml,  required by zendesk
 			method : "POST", // use POST method. required by zendesk
-			body : requestBody
+			body : requestBody,
+			headers:{
+				"Content-Type":"application/xml"// contentype is  xml,  required by zendesk
+			}
 		}
 
 		//perform webcall
@@ -112,27 +112,17 @@ var zendesk = {
 			method : "GET",
 			charset : 'UTF-8',
 			contentType : 'text/json',
-			headers : {
-				"Authorization": "Basic " + encodedAuth
-				/*name : "Authorization",
-				value : "Basic " + encodedAuth  //Zendesk uses HTTP Authorization header as authentication method.
-				*/
-			},
 			period : 3600
 		};
 		if(userOpt != undefined) {
 			for(var key in userOpt) {
-				if(key === "headers") {
-					opt['headers'] = opt['headers'].concat(userOpt['headers']);
-				} else {
 					opt[key] = userOpt[key];
-				}
 
 			}
 		}
 		
-		
-		
+		var http=require("http");
+		return cb(undefined, opt);
 		
 		// log(opt);
 		$fh.web(opt,function(err,res){
