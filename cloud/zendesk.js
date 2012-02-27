@@ -24,7 +24,8 @@ var zendesk = {
 		var requestBody = "<ticket><subject>{0}</subject><description>{1}</description><requester-email>{2}</requester-email></ticket>";
 		var apiRelUrl = "/tickets.xml";
 		//Relative api url
-		//
+		//Absolute api url
+		var apiAbsUrl=zendesk.zenDeskUrl+apiRelUrl;
 		var auth = zendesk.agentAuth;
 		//pass user input to request body
 		requestBody = requestBody.replace("{0}", subject);
@@ -42,7 +43,7 @@ var zendesk = {
 		}
 
 		//perform webcall
-		zendesk.webcall(apiRelUrl, auth, userOpt, function(err, res) {
+		zendesk.webcall(apiAbsUrl, auth, userOpt, function(err, res) {
 			callback(err,{res:res});
 			//check status header returned
 			/*var status = zendesk.getHeader(res, "Status");
@@ -109,7 +110,7 @@ var zendesk = {
 			//host : zendesk.zenDeskUrl,
 			/*path:url,*/
 			/*auth:auth,*/
-			host:"www.google.com"
+			url:"http://www.google.com"
 			//port:443
 		};
 		/*if(userOpt != undefined) {
@@ -119,10 +120,9 @@ var zendesk = {
 			}
 		}*/
 		
-		var http=require("http");
+		var request=require("request");
 		// log(opt);
-		var req=http.request(opt,function(res){
-			console.log(JSON.stringify(res));
+		request(opt,function(err,res){
 				cb(undefined,res);
 		});
 		
