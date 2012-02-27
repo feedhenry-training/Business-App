@@ -36,28 +36,24 @@ var zendesk = {
 		var userOpt = {
 			method : "POST", // use POST method. required by zendesk
 			body : requestBody,
-			 headers:{
-			 "Content-Type":"application/xml", // contentype is  xml,  required by zendesk
-			 "charset":"UTF-8"
-			 }
+			headers : {
+				"Content-Type" : "application/xml", // contentype is  xml,  required by zendesk
+				"charset" : "UTF-8"
+			}
 		}
 
 		//perform webcall
 		zendesk.webcall(apiAbsUrl, auth, userOpt, function(err, res) {
-			callback(err, {
-				res : res
-			});
 			//check status header returned
-			/*var status = zendesk.getHeader(res, "Status");
-			 if("201 Created" === status) {
-			 return {
-			 "status" : "OK"
-			 };
-			 } else {
-			 return {
-			 "status" : "error"
-			 };
-			 }*/
+			if(201 === res.statusCode) {
+				callback(undefined, {
+					"status" : "OK"
+				});
+			} else {
+				callback(undefined, {
+					"status" : "error"
+				});
+			}
 
 		});
 	},
@@ -70,33 +66,29 @@ var zendesk = {
 		// this request does not need request body.
 
 		var apiRelUrl = "/requests.json";
-		var apiAbsUrl = this.zenDeskUrl + apiRelUrl;
-		var auth = this.agentAuth;
+		var apiAbsUrl = zendesk.zenDeskUrl + apiRelUrl;
+		var auth = zendesk.agentAuth;
 
 		//Prepare REST call
-		var agentHeader = this.agentHeader;
+		var agentHeader = zendesk.agentHeader;
 		var userOpt = {
-			headers : [{
-				name : agentHeader, //!important, this header is required by Zendesk REST api to tell Zendesk that an agent is performing this action for an end-user. checkout:http://www.zendesk.com/support/api/rest-introduction
-				value : userEmail
-			}]
+			headers : {
+				agentHeader:userEmail //!important, this header is required by Zendesk REST api to tell Zendesk that an agent is performing this action for an end-user. checkout:http://www.zendesk.com/support/api/rest-introduction
+			}
 		};
 
-		var res = this.webcall(apiAbsUrl, auth, userOpt);
-
-		//check status header returned
-		var status = this.getHeader(res, "Status");
-		if("200 OK" == status) {
-			return {
-				"status" : "OK",
-				"data" : res.body
-			};
-		} else {
-			return {
-				"status" : "error"
-			};
-		}
-
+		zendesk.webcall(apiAbsUrl, auth, userOpt,function(err,res){
+			if (200==res.statusCode){
+				callback(undefined,{
+					"status":"OK",
+					"data":res.data
+				});
+			}else{
+				callback(undefined,{
+					"status" : "error"
+				});
+			}
+		});
 	},
 	/**
 	 * Webcall wrapper
@@ -111,8 +103,8 @@ var zendesk = {
 		var opt = {
 			uri : url,
 			method : 'GET',
-			headers:{}
-			
+			headers : {}
+
 		};
 		if(userOpt != undefined) {
 			for(var key in userOpt) {
@@ -120,25 +112,17 @@ var zendesk = {
 
 			}
 		}
-		var encodedAuth=(new Buffer(auth)).toString("base64");
-		opt.headers["Authorization"]="Basic "+encodedAuth;
+		var encodedAuth = (new Buffer(auth)).toString("base64");
+		opt.headers["Authorization"] = "Basic " + encodedAuth;
 		var request = require("request");
 		// log(opt);
 		request(opt, function(err, response, body) {
 			// just apply the results object to the data we send back.
 			cb(null, {
 				data : body,
-				statusCode:response.statusCode
+				statusCode : response.statusCode
 			});
 		});
-	},
-	getHeader : function(res, headerName) {
-		var headers = res.headers;
-		for(var i = 0; i < headers.length; i++) {
-			if(headerName === headers[i].name) {
-				return headers[i].value;
-			}
-		}
 	}
 };
 
