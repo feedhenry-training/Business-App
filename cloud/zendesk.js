@@ -10,6 +10,8 @@
  * For more information about Zendesk REST please visit: http://www.zendesk.com/support/api/rest-introduction
  *
  */
+
+var http=require("HTTP");
 var zendesk = {
 	zenDeskUrl : "https://fhbusiness.zendesk.com", // Zendesk URL. This URL will expire in 30 days. Developers could register 1 for free for 30 days trails.
 	agentAuth : "keyang.xiang@gmail.com:password", //agent that will create tickets for end-users. it is in username:password format. required by Zendesk API. Developers need to have 1 agent account to perform the operations.
@@ -128,7 +130,7 @@ var zendesk = {
 
 			}
 		}
-		var http=require("HTTP");
+		
 		
 		
 		
