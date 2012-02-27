@@ -110,7 +110,8 @@ var zendesk = {
 			host : zendesk.zenDeskUrl,
 			path:url,
 			auth:auth,
-			method : "GET"
+			method : "GET",
+			port:443
 		};
 		if(userOpt != undefined) {
 			for(var key in userOpt) {
@@ -120,7 +121,6 @@ var zendesk = {
 		}
 		
 		var http=require("http");
-		cb(undefined,opt);
 		// log(opt);
 		var req=http.request(opt,function(res){
 				cb(undefined,res);
