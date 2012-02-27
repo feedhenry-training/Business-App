@@ -125,10 +125,6 @@ var zendesk = {
 		request(opt,function(err,res){
 				cb(undefined,res);
 		});
-		
-		req.on("error",function(e){
-			cb(e,undefined);
-		});
 	},
 	getHeader : function(res, headerName) {
 		var headers = res.headers;
