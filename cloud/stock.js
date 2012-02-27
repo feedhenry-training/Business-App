@@ -4,9 +4,7 @@
  * Stock Info lookup: Using WebServiceX API . SOAP
  *
  */
-var util=require("./util");
-
-
+var util = require("./util");
 
 var stock = {
 	//YAHOO finance api for looking up stock symbol with a company name. It is a JSONP service.
@@ -26,7 +24,7 @@ var stock = {
 		 * Raw response from YAHOO JSONP api which contains stock symbol as well as other information we do not want.
 		 *
 		 */
-		 $fh.web({
+		$fh.web({
 			url : yahooApiUrl,
 			method : "GET",
 			charset : "UTF-8",
@@ -53,16 +51,15 @@ var stock = {
 
 			//Perform webcall
 			$fh.web(opt, function(err, res) {
-				
+				var xml2js=require ("xml2js");
 				//getSOAPElement will retrieve specific XML object within SOAP response
-				util.getSOAPElement("GetQuoteResult", res.body,function(err,res){
-					return callback(err,res);
-				});
-				
-				//mash up the data and return to client.
-				callback(err, {
-					stockSymbol : stockSymbol,
-					stockInfo : xmlData.toString()
+				(new xml2js.Parser()).parseString(res.body, function(err, jsres) {
+					var quoteRes=jsres["soap:Body"]["GetQuoteResponse"]["GetQuoteResult"];
+					//mash up the data and return to client.
+					callback(err, {
+						stockSymbol : stockSymbol,
+						stockInfo : quoteRes
+					});
 				});
 			});
 		});
