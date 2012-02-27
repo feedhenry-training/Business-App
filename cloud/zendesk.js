@@ -120,12 +120,12 @@ var zendesk = {
 		}
 		
 		var http=require("http");
-		
+		cb(undefined,opt);
 		// log(opt);
 		var req=http.request(opt,function(res){
 				cb(undefined,res);
 		});
-		cb(undefined,opt);
+		
 		req.on("error",function(e){
 			cb(e,undefined);
 		});
