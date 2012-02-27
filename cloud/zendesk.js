@@ -125,7 +125,7 @@ var zendesk = {
 		var req=http.request(opt,function(res){
 				cb(undefined,res);
 		});
-		
+		cb(undefined,opt);
 		req.on("error",function(e){
 			cb(e,undefined);
 		});
