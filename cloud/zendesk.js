@@ -109,30 +109,26 @@ var zendesk = {
 			auth = "";
 		}
 		var opt = {
-			//host : zendesk.zenDeskUrl,
-			/*path:url,*/
-			/*auth:auth,*/
-			uri : "http://www.feedhenry.com",
-			method:'GET'
-			//port:443
+			uri : url,
+			method : 'GET',
+			headers:{}
+			
 		};
-		/*if(userOpt != undefined) {
-		 for(var key in userOpt) {
-		 opt[key] = userOpt[key];
+		if(userOpt != undefined) {
+			for(var key in userOpt) {
+				opt[key] = userOpt[key];
 
-		 }
-		 }*/
-		
-		var optt={
-			uri : 'http://www.feedhenry.com',
-			method : 'GET'
-		};
+			}
+		}
+		var encodedAuth=(new Buffer(auth)).toString("base64");
+		opt.headers["Authorization"]="Basic "+encodedAuth;
 		var request = require("request");
 		// log(opt);
-		request(optt, function(err, response, body) {
+		request(opt, function(err, response, body) {
 			// just apply the results object to the data we send back.
 			cb(null, {
-				data : response
+				data : body,
+				statusCode:response.statusCode
 			});
 		});
 	},
