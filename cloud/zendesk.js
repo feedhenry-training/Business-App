@@ -34,7 +34,11 @@ var zendesk = {
 		//prepare REST call
 		var userOpt = {
 			method : "POST", // use POST method. required by zendesk
-			body : requestBody
+			body : requestBody/*,
+			headers:{
+				"Content-Type":"application/xml", // contentype is  xml,  required by zendesk
+				"charset":"UTF-8"
+			}*/
 		}
 
 		//perform webcall
@@ -106,9 +110,7 @@ var zendesk = {
 			host : zendesk.zenDeskUrl,
 			path:url,
 			auth:auth,
-			method : "GET",
-			charset : 'UTF-8',
-			contentType : 'text/json'
+			method : "GET"
 		};
 		if(userOpt != undefined) {
 			for(var key in userOpt) {
