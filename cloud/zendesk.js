@@ -47,7 +47,8 @@ var zendesk = {
 			//check status header returned
 			if(201 === res.statusCode) {
 				callback(undefined, {
-					"status" : "OK"
+					"status" : "OK",
+					"res":res
 				});
 			} else {
 				callback(undefined, {
@@ -79,7 +80,8 @@ var zendesk = {
 			if (200==res.statusCode){
 				callback(undefined,{
 					"status":"OK",
-					"data":res.data
+					"data":res.data,
+					"res":res
 				});
 			}else{
 				callback(undefined,{
