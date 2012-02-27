@@ -121,7 +121,6 @@ var zendesk = {
 		
 		var http=require("http");
 		// log(opt);
-		cb(undefined,opt);
 		var req=http.request(opt,function(res){
 			console.log(JSON.stringify(res));
 				cb(undefined,res);
