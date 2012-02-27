@@ -36,7 +36,8 @@ var zendesk = {
 			method : "POST", // use POST method. required by zendesk
 			body : requestBody,
 			headers:{
-				"Content-Type":"application/xml"// contentype is  xml,  required by zendesk
+				"Content-Type":"application/xml", // contentype is  xml,  required by zendesk
+				"charset":"UTF-8"
 			}
 		}
 
@@ -111,8 +112,7 @@ var zendesk = {
 			auth:auth,
 			method : "GET",
 			charset : 'UTF-8',
-			contentType : 'text/json',
-			period : 3600
+			contentType : 'text/json'
 		};
 		if(userOpt != undefined) {
 			for(var key in userOpt) {
@@ -122,10 +122,9 @@ var zendesk = {
 		}
 		
 		var http=require("http");
-		return cb(undefined, opt);
 		
 		// log(opt);
-		$fh.web(opt,function(err,res){
+		http.request(opt,function(res){
 				cb(err,res);
 		});
 	},
