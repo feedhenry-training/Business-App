@@ -41,7 +41,7 @@ var zendesk = {
 
 		//perform webcall
 		zendesk.webcall(apiAbsUrl, auth, userOpt, function(err, res) {
-			callback(err,res);
+			callback(err,{res:res});
 			
 			//check status header returned
 			var status = zendesk.getHeader(res, "Status");
