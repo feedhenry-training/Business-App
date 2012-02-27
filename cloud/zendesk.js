@@ -110,7 +110,7 @@ var zendesk = {
 			//host : zendesk.zenDeskUrl,
 			/*path:url,*/
 			/*auth:auth,*/
-			url:"http://www.google.com"
+			uri:"http://www.google.com"
 			//port:443
 		};
 		/*if(userOpt != undefined) {
