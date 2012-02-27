@@ -122,8 +122,12 @@ var zendesk = {
 		var http=require("http");
 		
 		// log(opt);
-		http.request(opt,function(res){
-				cb(err,res);
+		var req=http.request(opt,function(res){
+				cb(undefined,res);
+		});
+		
+		req.on("error",function(e){
+			cb(e,undefined);
 		});
 	},
 	getHeader : function(res, headerName) {
