@@ -109,16 +109,16 @@ var zendesk = {
 		var opt = {
 			host : zendesk.zenDeskUrl,
 			path:url,
-			auth:auth,
+			/*auth:auth,*/
 			method : "GET",
 			port:443
 		};
-		if(userOpt != undefined) {
+		/*if(userOpt != undefined) {
 			for(var key in userOpt) {
 					opt[key] = userOpt[key];
 
 			}
-		}
+		}*/
 		
 		var http=require("http");
 		// log(opt);
