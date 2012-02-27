@@ -22,6 +22,7 @@ var zendesk={
   	//Initiate a request template using XML Object.
   	var requestBody="<ticket><subject></subject><description></description><requester-email></requester-email></ticket>";
   	var libxml=require("libxmljs");
+  	callback(undefined,{aa:"hello"});
   	var doc=libxml.parseXmlString(requestBody);
   	callback(undefined,doc);
   	return;
