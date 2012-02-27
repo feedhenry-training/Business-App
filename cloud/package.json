@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "dependencies" : { 
     "libxmljs" : "*",
-    "xml2js":"*"
+    "xml2js":"*",
+    "soap":"*"
   }
 }
