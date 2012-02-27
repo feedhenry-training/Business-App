@@ -24,7 +24,7 @@ var zendesk={
   	var libxml=require("libxmljs");
   	var res=(new libxml.SaxParser()).parseString(requestBody);
   //	var doc=libxml.parseXmlString(requestBody);
-  	callback(undefined,res);
+  	callback(undefined,{res:res.toString()});
   	return;
 	 var apiRelUrl="/tickets.xml"; //Relative api url
 	 // API absolute url
