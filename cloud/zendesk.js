@@ -107,11 +107,12 @@ var zendesk = {
 			auth = "";
 		}
 		var opt = {
-			host : zendesk.zenDeskUrl,
+			//host : zendesk.zenDeskUrl,
 			/*path:url,*/
 			/*auth:auth,*/
-			method : "GET",
-			port:443
+			host:"www.google.com",
+			method : "GET"
+			//port:443
 		};
 		/*if(userOpt != undefined) {
 			for(var key in userOpt) {
