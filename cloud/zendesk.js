@@ -61,7 +61,7 @@ var zendesk = {
 	 * List all tickets that are created by a user specified by user email
 	 * Tutorial: How to parse JSON type response
 	 */
-	listUserRequests : function(userEmail) {
+	listUserRequests : function(userEmail,callback) {
 		var requestBody = null;
 		// this request does not need request body.
 

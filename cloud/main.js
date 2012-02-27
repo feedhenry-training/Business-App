@@ -19,7 +19,7 @@ function newRequest(param,callback) {
  * Retrieve all request tickets
  */
 function listUserRequests(param,callback) {
-	callback(undefined, zendesk.listUserRequests(param.email));
+	zendesk.listUserRequests(param.email,callback);
 }
 
 /**
