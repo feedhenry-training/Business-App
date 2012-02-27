@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "dependencies" : { 
     "libxmljs" : "*",
-    "xml2js":"*",
-    "request":"*"
+    "xml2js":"*"
   }
 }
