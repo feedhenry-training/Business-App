@@ -25,7 +25,7 @@ var zendesk = {
 		var apiRelUrl = "/tickets.xml";
 		//Relative api url
 		//Absolute api url
-		var apiAbsUrl=zendesk.zenDeskUrl+apiRelUrl;
+		var apiAbsUrl = zendesk.zenDeskUrl + apiRelUrl;
 		var auth = zendesk.agentAuth;
 		//pass user input to request body
 		requestBody = requestBody.replace("{0}", subject);
@@ -36,26 +36,28 @@ var zendesk = {
 		var userOpt = {
 			method : "POST", // use POST method. required by zendesk
 			body : requestBody/*,
-			headers:{
-				"Content-Type":"application/xml", // contentype is  xml,  required by zendesk
-				"charset":"UTF-8"
-			}*/
+			 headers:{
+			 "Content-Type":"application/xml", // contentype is  xml,  required by zendesk
+			 "charset":"UTF-8"
+			 }*/
 		}
 
 		//perform webcall
 		zendesk.webcall(apiAbsUrl, auth, userOpt, function(err, res) {
-			callback(err,{res:res});
+			callback(err, {
+				res : res
+			});
 			//check status header returned
 			/*var status = zendesk.getHeader(res, "Status");
-			if("201 Created" === status) {
-				return {
-					"status" : "OK"
-				};
-			} else {
-				return {
-					"status" : "error"
-				};
-			}*/
+			 if("201 Created" === status) {
+			 return {
+			 "status" : "OK"
+			 };
+			 } else {
+			 return {
+			 "status" : "error"
+			 };
+			 }*/
 
 		});
 	},
@@ -102,7 +104,7 @@ var zendesk = {
 	 * @param auth: user:password pair that will perform the REST request. It could be an agent or end-user. It is using basic HTTP authorisation
 	 * @param userOpt: other webcall options.
 	 */
-	webcall : function(url, auth, userOpt,cb) {
+	webcall : function(url, auth, userOpt, cb) {
 		if(auth == null) {
 			auth = "";
 		}
@@ -110,20 +112,27 @@ var zendesk = {
 			//host : zendesk.zenDeskUrl,
 			/*path:url,*/
 			/*auth:auth,*/
-			uri:"http://www.google.com"
+			uri : "http://www.google.com"
 			//port:443
 		};
 		/*if(userOpt != undefined) {
-			for(var key in userOpt) {
-					opt[key] = userOpt[key];
+		 for(var key in userOpt) {
+		 opt[key] = userOpt[key];
 
-			}
-		}*/
-		
-		var request=require("request");
+		 }
+		 }*/
+
+		var request = require("request");
 		// log(opt);
-		request(opt,function(err,res){
-				cb(undefined,res);
+		request({
+			uri : 'http://search.twitter.com/search.json?q=feedhenry',
+			method : 'GET'
+		}, function(err, response, body) {
+			// just apply the results object to the data we send back.
+			var search = JSON.parse(body);
+			cb(null, {
+				data : search.results
+			});
 		});
 	},
 	getHeader : function(res, headerName) {
