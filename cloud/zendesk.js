@@ -18,18 +18,18 @@ var zendesk={
    * Create a new ticket with a email address
    * Tutorial: How to post a REST request with xml request body & How to parse and retrieve xml type response.
    */
-  newRequest:function(subject, content,userEmail){
+  newRequest:function(subject, content,userEmail,callback){
   	//Initiate a request template using XML Object.
-  /*	var requestBody=<ticket>
-		<subject></subject>
-		<description></description>
-		<requester-email></requester-email>
-	 </ticket>*/
+  	var requestBody="<ticket><subject></subject><description></description><requester-email></requester-email></ticket>";
+  	var libxml=require("libxmljs");
+  	var doc=libxml.parseXmlString(requestBody);
+  	callback(undefined,doc);
+  	return;
 	 var apiRelUrl="/tickets.xml"; //Relative api url
 	 // API absolute url
-	 var apiAbsUrl=this.zenDeskUrl+apiRelUrl;
+	 var apiAbsUrl=zendesk.zenDeskUrl+apiRelUrl;
 	 //
-	 var auth=this.agentAuth;
+	 var auth=zendesk.agentAuth;
 	 //pass user input to request body
 	 requestBody.subject=subject;
 	 requestBody['requester-email']=userEmail;
@@ -43,10 +43,10 @@ var zendesk={
 	 }
 	 
 	 //perform webcall
-	 var res=this.webcall(apiAbsUrl,auth,userOpt);
+	 var res=zendesk.webcall(apiAbsUrl,auth,userOpt);
 	 
 	 //check status header returned
-	 var status=this.getHeader(res,"Status");
+	 var status=zendesk.getHeader(res,"Status");
 	 if ("201 Created"===status){
 	 	return {"status":"OK"};
 	 }else{

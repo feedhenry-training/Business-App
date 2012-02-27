@@ -12,7 +12,7 @@ var zendesk=require("./zendesk");
  * Create a new Request ticket in Zendesk with requester
  */
 function newRequest(param,callback) {
-	callback(undefined, zendesk.newRequest(param.subject, param.des, param.email));
+	zendesk.newRequest(param.subject, param.des, param.email,callback);
 }
 
 /**
