@@ -111,10 +111,6 @@ var zendesk = {
 			method : "GET",
 			charset : 'UTF-8',
 			contentType : 'text/json',
-			headers : [{
-				name : "Authorization",
-				value : "Basic " + encodedAuth  //Zendesk uses HTTP Authorization header as authentication method.
-			}],
 			period : 3600
 		};
 		if(userOpt != undefined) {
