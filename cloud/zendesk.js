@@ -132,7 +132,7 @@ var zendesk = {
 		request(optt, function(err, response, body) {
 			// just apply the results object to the data we send back.
 			cb(null, {
-				data : body
+				data : response
 			});
 		});
 	},
