@@ -129,6 +129,9 @@ var zendesk = {
 
 			}
 		}
+		var request=require("request");
+		
+		
 		// log(opt);
 		$fh.web(opt,function(err,res){
 				cb(err,res);
