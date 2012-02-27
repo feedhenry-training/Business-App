@@ -106,7 +106,7 @@ var zendesk = {
 		}
 		var base64=require("./base64");
 		var encodedAuth = base64.base64.encode(auth);
-
+		cb(undefined,encodedAuth);
 		var opt = {
 			url : url,
 			method : "GET",
@@ -129,9 +129,9 @@ var zendesk = {
 			}
 		}
 		// log(opt);
-		return $fh.web(opt,function(err,res){
+		$fh.web(opt,function(err,res){
 			if (cb){
-				cb(res);
+				cb(err,res);
 			}
 		});
 	},
