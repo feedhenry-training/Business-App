@@ -115,9 +115,12 @@ var zendesk = {
 		}
 		var encodedAuth = (new Buffer(auth)).toString("base64");
 		opt.headers["Authorization"] = "Basic " + encodedAuth;
-		var request = require("request");
+		//var request = require("request");
 		// log(opt);
-		request.cookie("");
+		//request.cookie("");
+		$fh.web(opt,function(err,res){
+			cb(null,{"ab":"ab"});
+		});
 		request(opt, function(err, response, body) {
 			// just apply the results object to the data we send back.
 			cb(null, {
@@ -131,3 +134,4 @@ var zendesk = {
 
 exports.newRequest = zendesk.newRequest;
 exports.listUserRequests = zendesk.listUserRequests;
+
