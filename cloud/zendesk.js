@@ -102,7 +102,7 @@ var zendesk = {
 			auth = "";
 		}
 		var opt = {
-			uri : url,
+			url : url,
 			method : 'GET',
 			headers : {}
 
