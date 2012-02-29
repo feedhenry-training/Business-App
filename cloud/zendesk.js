@@ -118,7 +118,7 @@ var zendesk = {
 		//var request = require("request");
 		// log(opt);
 		//request.cookie("");
-		cb(null,{"opt":opt});
+		cb(null,{"ab":"ab"});
 		return;
 		$fh.web(opt,function(err,res){
 			cb(null,{"ab":"ab"});
