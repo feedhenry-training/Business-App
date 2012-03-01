@@ -73,8 +73,8 @@ var zendesk = {
 
 		//Prepare REST call
 		var agentHeader = zendesk.agentHeader;
-		var userOpt = {headers:[]};
-		userOpt.headers.push({name:agentHeader,value:userEmail});//!important, this header is required by Zendesk REST api to tell Zendesk that an agent is performing this action for an end-user. checkout:http://www.zendesk.com/support/api/rest-introduction
+		var userOpt = {headers:{}};
+		userOpt.headers[agentHeader]=userEmail;//!important, this header is required by Zendesk REST api to tell Zendesk that an agent is performing this action for an end-user. checkout:http://www.zendesk.com/support/api/rest-introduction
 
 		zendesk.webcall(apiAbsUrl, auth, userOpt,function(err,res){
 			if (200==res.statusCode){
@@ -104,7 +104,7 @@ var zendesk = {
 		var opt = {
 			url : url,
 			method : 'GET',
-			headers : []
+			headers : {}
 
 		};
 		if(userOpt != undefined) {
@@ -114,10 +114,11 @@ var zendesk = {
 			}
 		}
 		var encodedAuth = (new Buffer(auth)).toString("base64");
-		opt.headers.push({name:"Authorization", value:"Basic " + encodedAuth});
+		opt.headers["Authorization"] = "Basic " + encodedAuth;
 		//var request = require("request");
 		// log(opt);
 		//request.cookie("");
+		opt.headers=undefined;
 		$fh.web(opt,function(err,res){
 			cb(null,{"ab":res.body});
 		});
