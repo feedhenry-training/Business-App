@@ -118,7 +118,6 @@ var zendesk = {
 		//var request = require("request");
 		// log(opt);
 		//request.cookie("");
-		opt.headers=undefined;
 		$fh.web(opt,function(err,res){
 			cb(null,{"ab":"ab"});
 		});
