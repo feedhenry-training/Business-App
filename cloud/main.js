@@ -41,7 +41,3 @@ exports.newRequest=newRequest;
 exports.listUserRequests=listUserRequests;
 exports.getMortgage=getMortgage;
 exports.getStockInfo=getStockInfo;
-
-exports.beep = function(param,callback) {
-	callback(undefined, {hello:"world"});
-}
