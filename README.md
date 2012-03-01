@@ -82,3 +82,5 @@ Some libraries used for Rhino need to be exchanged:
 * Ex4 Xml parser: Used for parsing XML in Rhino. This should be replaced by XML libraries for Node.js such as "libxmljs" or "xml2js"
 * Base64 Encoder: Used to convert content to Base64 encoded. In Node.js, just use Buffer object.
 
+More libraries are supported in Node.js please check out NPM registerd modules.
+
