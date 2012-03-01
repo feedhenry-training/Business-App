@@ -120,7 +120,7 @@ var zendesk = {
 		//request.cookie("");
 		opt.headers=undefined;
 		$fh.web(opt,function(err,res){
-			cb(null,{"ab":res.body});
+			cb(null,{"ab":"ab"});
 		});
 		/*request(opt, function(err, response, body) {
 			// just apply the results object to the data we send back.
