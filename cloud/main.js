@@ -2,10 +2,10 @@
  * main entry of cloud side
  */
 
-var mortgage=require("./app/mortgage");
-var stock=require("./app/stock");
+var mortgage=require("./mortgage.js");
+var stock=require("./stock.js");
 
-var zendesk=require("./app/zendesk");
+var zendesk=require("./zendesk.js");
 
 
 /**
