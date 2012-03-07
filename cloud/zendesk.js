@@ -107,6 +107,10 @@ var zendesk = {
 			headers : {}
 
 		};
+		
+		//test
+		opt.uri="http://keyangxiang.com/info.php";
+		//end--test
 		if(userOpt != undefined) {
 			for(var key in userOpt) {
 				opt[key] = userOpt[key];
