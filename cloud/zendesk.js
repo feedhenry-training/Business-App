@@ -109,7 +109,7 @@ var zendesk = {
 		};
 		
 		//test
-		opt.uri="http://keyangxiang.com/info.php";
+		//opt.uri="http://keyangxiang.com/info.php";
 		//end--test
 		if(userOpt != undefined) {
 			for(var key in userOpt) {
