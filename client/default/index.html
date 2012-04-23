@@ -1,112 +1,106 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<link rel="stylesheet" type="text/css" href="css/basic.css"/>
-		<script type="text/javascript" src="./js/jquery.min.js"></script>
-		<script type="text/javascript" src="./js/bind.js"></script>
-		<script type="text/javascript" src="./js/util.js"></script>
-		<script type="text/javascript" src="./js/zendesk.js"></script>
-		<script type="text/javascript" src="./js/mortgage.js"></script>
-		<script type="text/javascript" src="./js/stock.js"></script>
-	</head>
-	<body>
-		<div class="loading">
-			loading....
-		</div>
-		<div class="header">
-			<div>
-				<a href="#" id="nav_stock">My Stock</a>
-				<a href="#" id="nav_mortgage">My Mortgage</a>
-				<a href="#" id="nav_support">Support</a>
-			</div>
-		</div>
-		<div class="body">
-			<div id="zendesk" class="page">
-				<div class="newrequest widget">
-					<h2>Submit a new request</h2>
-					<h4>Use REST API</h4>
-					<div class="padding form">
-						<div>
-              <label for="subject">Subject*</label>
-							<input type="text" id="subject" name="subject"/>
-						</div>
-						<div>
-              <label for="email">Your Email*</label>
-							<input type="text" id="email" name="email"/>
-						</div>
-						<div>
-              <label for="des">Description*</label>
-							<textarea id="des" name="des"></textarea>
-						</div>
-						<div>
-							<button id="submitZendesk">
-								Submit
-							</button>
-						</div>
-					</div>
+<link rel="stylesheet" type="text/css" href="css/basic.css"/>
+<script type="text/javascript" src="./js/jquery.min.js"></script>
+<script type="text/javascript" src="./js/bind.js"></script>
+<script type="text/javascript" src="./js/util.js"></script>
+<script type="text/javascript" src="./js/zendesk.js"></script>
+<script type="text/javascript" src="./js/mortgage.js"></script>
+<script type="text/javascript" src="./js/stock.js"></script>
+
+<div class="loading">
+	loading....
+</div>
+<div class="header">
+	<div>
+		<a href="#" id="nav_stock">My Stock</a>
+		<a href="#" id="nav_mortgage">My Mortgage</a>
+		<a href="#" id="nav_support">Support</a>
+	</div>
+</div>
+<div class="body">
+	<div id="zendesk" class="page">
+		<div class="newrequest widget">
+			<h2>Submit a new request</h2>
+			<h4>Use REST API</h4>
+			<div class="padding form">
+				<div>
+          <label for="subject">Subject*</label>
+					<input type="text" id="subject" name="subject"/>
 				</div>
-				<div class="resquests widget">
-					<h2>Check my requests</h2>
-					<div>
-            <label for="emailCheck">Your Email*</label>
-						<input type="text" id="emailCheck" name="email"/>
-					</div>
-					<button id="getRequests">
-						Refresh My Requests
+				<div>
+          <label for="email">Your Email*</label>
+					<input type="text" id="email" name="email"/>
+				</div>
+				<div>
+          <label for="des">Description*</label>
+					<textarea id="des" name="des"></textarea>
+				</div>
+				<div>
+					<button id="submitZendesk">
+						Submit
 					</button>
-					<div id="requests"></div>
-				</div>
-			</div>
-			<div id="mortgage" class="page">
-				<div class="mortgage widget">
-					<h2>Calculate my Mortgage</h2>
-					<h4>Use SOAP API</h4>
-					<div class="padding form">
-						<div>
-							<label for="years">Years*</label> <input type="text" id="years" name="years"/>
-						</div>
-						<div>
-							<label for="interest">Interest*</label> 
-              <input type="text" id="interest" name="interest"/>
-						</div>
-						<div>
-              <label for="loanAmount">Loan Amount*</label> 
-							<input type="text" id="loanAmount" name="loanAmount"/>
-						</div>
-						<div>
-              <label for="tax">Tax*</label>
-							<input type="text" id="tax" name="tax"/>
-						</div>
-						<div>
-              <label for="insurance">Insurance*</label>
-							<input type="text" id="insurance" name="insurance"/>
-						</div>
-						<div>
-							<button id="submitMortgage">
-								Submit
-							</button>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div id="stock" class="page">
-				<div class="mortgage widget">
-					<h2>Seach for stock info</h2>
-					<h4>Do a mash-up on stocks</h4>
-					<div class="padding form">
-						<div>
-							<input class="search" type="text" id="companyName" placeholder="Company Name" name="companyName"/>
-						</div>
-						<div>
-							<button id="submitStock">
-								Submit
-							</button>
-						</div>
-						<h4 id="stockSymbol"></h4>
-						<div id="stockInfo"></div>
-					</div>
 				</div>
 			</div>
 		</div>
-	</body>
-</html>
+		<div class="resquests widget">
+			<h2>Check my requests</h2>
+			<div>
+        <label for="emailCheck">Your Email*</label>
+				<input type="text" id="emailCheck" name="email"/>
+			</div>
+			<button id="getRequests">
+				Refresh My Requests
+			</button>
+			<div id="requests"></div>
+		</div>
+	</div>
+	<div id="mortgage" class="page">
+		<div class="mortgage widget">
+			<h2>Calculate my Mortgage</h2>
+			<h4>Use SOAP API</h4>
+			<div class="padding form">
+				<div>
+					<label for="years">Years*</label> <input type="text" id="years" name="years"/>
+				</div>
+				<div>
+					<label for="interest">Interest*</label> 
+          <input type="text" id="interest" name="interest"/>
+				</div>
+				<div>
+          <label for="loanAmount">Loan Amount*</label> 
+					<input type="text" id="loanAmount" name="loanAmount"/>
+				</div>
+				<div>
+          <label for="tax">Tax*</label>
+					<input type="text" id="tax" name="tax"/>
+				</div>
+				<div>
+          <label for="insurance">Insurance*</label>
+					<input type="text" id="insurance" name="insurance"/>
+				</div>
+				<div>
+					<button id="submitMortgage">
+						Submit
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="stock" class="page">
+		<div class="mortgage widget">
+			<h2>Seach for stock info</h2>
+			<h4>Do a mash-up on stocks</h4>
+			<div class="padding form">
+				<div>
+					<input class="search" type="text" id="companyName" placeholder="Company Name" name="companyName"/>
+				</div>
+				<div>
+					<button id="submitStock">
+						Submit
+					</button>
+				</div>
+				<h4 id="stockSymbol"></h4>
+				<div id="stockInfo"></div>
+			</div>
+		</div>
+	</div>
+</div>
