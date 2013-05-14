@@ -4,6 +4,6 @@
   "dependencies" : { 
     "libxmljs" : "*",
     "xml2js":"*",
-    "request":"*"
+    "request":"2.0"
   }
 }
