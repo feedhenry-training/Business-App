@@ -12,8 +12,8 @@
  */
 
 var zendesk = {
-	zenDeskUrl : "https://fhbusiness.zendesk.com", // Zendesk URL. This URL will expire in 30 days. Developers could register 1 for free for 30 days trails.
-	agentAuth : "keyang.xiang@gmail.com:password", //agent that will create tickets for end-users. it is in username:password format. required by Zendesk API. Developers need to have 1 agent account to perform the operations.
+	zenDeskUrl : "https://fhtest2.zendesk.com", // Zendesk URL. This URL will expire in 30 days. Developers could register 1 for free for 30 days trails.
+	agentAuth : "martin.murphy+zentest2@feedhenry.com/token:mls3TRzGFurS6NOvOE8dsLGpHD2paUrWzh4WQ5O9", //agent that will create tickets for end-users. it is in username:password format. required by Zendesk API. Developers need to have 1 agent account to perform the operations.
 	agentHeader : "X-On-Behalf-Of", // agent header is used by Zendesk to locate the end-users. required by Zendesk API
 	/**
 	 * Create a new ticket with a email address
